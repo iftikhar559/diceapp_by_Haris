@@ -1,0 +1,166 @@
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+void main() {
+  runApp(MyDiceApp());
+}
+
+class MyDiceApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.lightGreenAccent,
+        appBar: AppBar(
+          centerTitle: true,
+
+          backgroundColor: Colors.red,
+        ),
+        body: ClickAblbeDiceApp(),
+      ),
+    );
+  }
+}
+
+class ClickAblbeDiceApp extends StatefulWidget {
+  @override
+  _ClickAblbeDiceAppState createState() => _ClickAblbeDiceAppState();
+}
+
+class _ClickAblbeDiceAppState extends State<ClickAblbeDiceApp> {
+  int top_left = 5;
+  int top_right = 6;
+  int bottom_left = 6;
+  int bottom_right = 1;
+  int up_float=2;
+  int down_good=3;
+  int sum1=0;
+  int sum2=0;
+  int sum3=0;
+  int sum4=0;
+  int sum5=0;
+  int sum6=0;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: [
+          Expanded(child:Text(
+            "RESULT:$sum1",
+            textAlign:TextAlign.center,
+            overflow:TextOverflow.ellipsis,
+            style:const TextStyle(fontWeight: FontWeight.bold),
+
+          )),
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$top_left.png"),
+                onPressed: () {
+                  setState(() {
+                    top_left = Random().nextInt(6) + 1;
+                    sum1=sum1+top_left;
+
+                  });
+                  print(top_left);
+                },
+              )),
+          Expanded(child:Text(
+            "RESULT:$sum2",
+            textAlign:TextAlign.center,
+            overflow:TextOverflow.ellipsis,
+            style:const TextStyle(fontWeight: FontWeight.bold),
+
+          )),
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$top_right.png"),
+                onPressed: () {
+                  setState(() {
+                    top_right = Random().nextInt(6) + 1;
+                    sum2=sum2+top_right;
+                  });
+                  print(top_right);
+                },
+              )),
+          Expanded(child:Text(
+            "RESULT:$sum3",
+            textAlign:TextAlign.center,
+            overflow:TextOverflow.ellipsis,
+            style:const TextStyle(fontWeight: FontWeight.bold),
+
+          )),
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$bottom_left.png"),
+                onPressed: () {
+                  setState(() {
+                    bottom_left = Random().nextInt(6) + 1;
+                    sum3=sum3+bottom_left;
+                  });
+                  print(bottom_left);
+                },
+              )),
+          Expanded(child:Text(
+            "RESULT:$sum4",
+            textAlign:TextAlign.center,
+            overflow:TextOverflow.ellipsis,
+            style:const TextStyle(fontWeight: FontWeight.bold),
+
+          )),
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$bottom_right.png"),
+                onPressed: () {
+                  setState(() {
+                    bottom_right = Random().nextInt(6) + 1;
+                    sum4=sum4+bottom_right;
+                  });
+                  print(bottom_right);
+                },
+              )),
+          Expanded(child:Text(
+            "RESULT:$sum5",
+            textAlign:TextAlign.center,
+            overflow:TextOverflow.ellipsis,
+            style:const TextStyle(fontWeight: FontWeight.bold),
+
+          )),
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$up_float.png"),
+                onPressed: () {
+                  setState(() {
+                    up_float= Random().nextInt(6) + 1;
+                    sum5=sum5+up_float;
+                  });
+                  print(up_float);
+                },
+              )),
+
+          Expanded(child:Text(
+            "RESULT:$sum6",
+            textAlign:TextAlign.center,
+            overflow:TextOverflow.ellipsis,
+            style:const TextStyle(fontWeight: FontWeight.bold),
+
+          )),
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$down_good.png"),
+                onPressed: () {
+                  setState(() {
+                    down_good = Random().nextInt(6) + 1;
+                    sum6=sum6+down_good;
+                  });
+                  print(down_good);
+                },
+              )),
+
+
+
+        ],
+
+      ),
+    );
+  }
+}
