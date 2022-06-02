@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+void main() {
+  runApp(MyDiceApp());
+}
+
+class MyDiceApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.lightGreenAccent,
+        appBar: AppBar(
+          centerTitle: true,
+
+          backgroundColor: Colors.red,
+        ),
+        body: ClickAblbeDiceApp(),
+      ),
+    );
+  }
+}
+
+class ClickAblbeDiceApp extends StatefulWidget {
+  @override
+  _ClickAblbeDiceAppState createState() => _ClickAblbeDiceAppState();
+}
+
+class _ClickAblbeDiceAppState extends State<ClickAblbeDiceApp> {
+  int top_left = 5;
+  int top_right = 6;
+  int bottom_left = 6;
+  int bottom_right = 1;
+  int up_left=2;
+  int down_right=3;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: [
+
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$top_left.png"),
+                onPressed: () {
+                  setState(() {
+                    top_left = Random().nextInt(6) + 1;
+
+
+                  });
+                  print(top_left);
+                },
+              )),
+
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$top_right.png"),
+                onPressed: () {
+                  setState(() {
+                    top_right = Random().nextInt(6) + 1;
+
+                  });
+                  print(top_right);
+                },
+              )),
+
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$bottom_left.png"),
+                onPressed: () {
+                  setState(() {
+                    bottom_left = Random().nextInt(6) + 1;
+
+                  });
+                  print(bottom_left);
+                },
+              )),
+
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$bottom_right.png"),
+                onPressed: () {
+                  setState(() {
+                    bottom_right = Random().nextInt(6) + 1;
+
+                  });
+                  print(bottom_right);
+                },
+              )),
+
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$up_left.png"),
+                onPressed: () {
+                  setState(() {
+                    up_left= Random().nextInt(6) + 1;
+
+                  });
+                  print(up_left);
+                },
+              )),
+
+          Expanded(
+              child: TextButton(
+                child: Image.asset("images/dice$down_right.png"),
+                onPressed: () {
+                  setState(() {
+                    down_right = Random().nextInt(6) + 1;
+
+                  });
+                  print(down_right);
+                },
+              )),
+
+        
+        ],
+
+      ),
+    );
+  }
+}
